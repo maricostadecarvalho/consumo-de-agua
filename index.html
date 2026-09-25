@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidrata+</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="splash" class="screen splash-screen">
+
+        <button id="themeToggle" class="theme-toggle">
+            🌙
+        </button>
+
+        <div class="splash-content">
+
+            <div class="water-icon">
+                💧
+            </div>
+
+            <h1>Hidrata+</h1>
+
+            <p>
+                Controle seu consumo de água
+            </p>
+
+            <button id="enterBtn" class="primary-btn">
+                Entrar
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section id="home" class="screen home-screen hidden">
+
+        <header class="topbar">
+
+            <div class="brand">
+
+                <span class="brand-icon">
+                    💧
+                </span>
+
+                <span>
+                    Hidrata+
+                </span>
+
+            </div>
+
+            <button
+                id="headerThemeToggle"
+                class="header-theme"
+            >
+                🌙
+            </button>
+
+        </header>
+
+
+        <main class="container">
+
+            <section class="summary-grid">
+
+                <article class="summary-card">
+
+                    <span class="summary-label">
+                        Total consumido hoje
+                    </span>
+
+                    <strong id="totalToday">
+                        0 ml
+                    </strong>
+
+                </article>
+
+
+                <article class="summary-card">
+
+                    <span class="summary-label">
+                        Meta diária
+                    </span>
+
+                    <strong id="dailyGoal">
+                        0 ml
+                    </strong>
+
+                </article>
+
+
+                <article class="summary-card">
+
+                    <span class="summary-label">
+                        Meta atingida
+                    </span>
+
+                    <strong id="goalPercent">
+                        0%
+                    </strong>
+
+                </article>
+
+            </section>
+
+
+            <section class="records-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Consumo de água
+                        </h2>
+
+                        <p>
+                            Clique em um registro para editar.
+                        </p>
+
+                    </div>
+
+                    <button
+                        id="addBtn"
+                        class="add-btn"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="recordsList"
+                    class="records-list"
+                ></div>
+
+
+                <div
+                    id="emptyState"
+                    class="empty-state"
+                >
+
+                    <div class="empty-icon">
+                        💧
+                    </div>
+
+                    <h3>
+                        Nenhum registro ainda
+                    </h3>
+
+                    <p>
+                        Adicione seu primeiro consumo de água.
+                    </p>
+
+                    <button
+                        id="emptyAddBtn"
+                        class="secondary-btn"
+                    >
+                        Adicionar consumo
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+
+    <div
+        id="modalOverlay"
+        class="modal-overlay hidden"
+    >
+
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+                    Adicionar consumo
+                </h2>
+
+                <button
+                    id="closeModal"
+                    class="close-btn"
+                >
+                    
+                </button>
+
+            </div>
+
+
+            <form id="waterForm">
+
+                <label for="date">
+                    Data
+                </label>
+
+                <input
+                    id="date"
+                    type="date"
+                    required
+                >
+
+
+                <label for="quantity">
+                    Quantidade de água (ml)
+                </label>
+
+                <input
+                    id="quantity"
+                    type="number"
+                    min="1"
+                    step="0.01"
+                    placeholder="Ex.: 500"
+                    required
+                >
+
+
+                <label for="weight">
+                    Peso atual (kg)
+                </label>
+
+                <input
+                    id="weight"
+                    type="number"
+                    min="1"
+                    step="0.01"
+                    placeholder="Ex.: 60"
+                    required
+                >
+
+
+                <div class="goal-preview">
+
+                    <span>
+                        Meta recomendada:
+                    </span>
+
+                    <strong id="goalPreview">
+                        0 ml/dia
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        id="cancelBtn"
+                        class="cancel-btn"
+                        type="button"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        class="primary-btn modal-save"
+                        type="submit"
+                    >
+                        Salvar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
